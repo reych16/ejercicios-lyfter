@@ -1,0 +1,19 @@
+1. Cree un algoritmo para ver un video en Youtube. Sea lo más especifico posible.
+    
+    Respuesta: 
+    
+    1. Inicio
+    2. Si tiene computadora: 
+        1. Encender la computadora
+        2. Ingresar a un navegador web
+        3. Ingresar a youtube
+    3. Sino, si tiene smartphone:
+        1. Si tiene la aplicación de youtube:
+            1. Ingresar a la app de Youtube
+        2. Sino: 
+            1. Descargue la app de Youtube
+            2. Ingrese a la app de Youtube
+    4. Sino, buscar alguien que si tenga alguno de los dos dispositivos y pedirlo prestado. 
+    5. Buscar un video
+    6. Reproducir el video
+    7. Fin.
