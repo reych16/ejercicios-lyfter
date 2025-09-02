@@ -1,0 +1,34 @@
+2. Cree un algoritmo que describa su rutina diaria. Use condiciones, condiciones múltiples y ciclos.
+    
+    Respuesta: 
+    
+    1. Inicio
+    2. Levantarme de la cama 
+    3. Si hay arroz y frijoles:
+        1. Desayunar pinto
+    4. Sino, si hay jamón y queso: 
+        1. Desayunar omelette
+    5. Sino, ir al super y comprar
+    6. Bañarme 
+    7. Salir de casa
+    8. Si el carro tiene gasolina:
+        1. Ir al gym en carro
+    9. Sino:
+        1. Ir en Uber 
+    10. Regresar a la casa
+    11. Almorzar
+    12. Mientras me estoy bañando:
+        1. Si el parlante esta cargado:
+            1. Escuchar música con el parlante
+        2. Sino:
+            1. Escuchar música con el celular
+    13. Si tengo el iPad o la computadora cargada: 
+        1. Estudiar
+    14. Sino:
+        1. Leer un libro 
+    15. Cenar 
+    16. Cepillarme los dientes
+    17. Mientras no tenga sueño: 
+        1. Ver tik toks 
+    18. Dormir
+    19. Fin.
