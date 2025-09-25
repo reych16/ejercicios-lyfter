@@ -1,15 +1,36 @@
 # Logic for the actions of the Student Management System
+def normalize_spaces(text):
+    return " ".join(text.strip().split())
+
+
+def is_valid_full_name(text):
+    if not isinstance(text, str):
+        return False
+    cleaned = normalize_spaces(text)
+    if len(cleaned) < 3:
+        return False
+
+    has_letter = False
+    for char in cleaned:
+        if char.isalpha():
+            has_letter = True
+            continue
+        if char in (" ", "-","'"):
+            continue
+        return False
+    return has_letter
+
 
 def add_student(students):
     print('\n-- Add Student --')
 
     #Full name (min 3 chars)
     while True: 
-        name = input('Full name: ').strip()
-        if len(name) >= 3:
-            name = name.title()
+        raw = input('Full name: ')
+        if is_valid_full_name(raw):
+            name = normalize_spaces(raw).title()
             break
-        print('Name value must have at least 3 characters')
+        print("Invalid name. Use letters/spaces only (optional - or '). Min length: 3.")
     
     #Section: 1-2 digits + 1 uppercase letter
     while True:
@@ -97,8 +118,9 @@ def show_top_three(students):
     used_indices = [False] * len(students)
     top_students = []
 
+    limit = min(3, len(students))
     selections_made = 0
-    while selections_made < 3:
+    while selections_made < limit:
         best_index = -1
 
         index = 0

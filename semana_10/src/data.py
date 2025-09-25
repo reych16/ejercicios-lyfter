@@ -3,22 +3,12 @@
 import os
 import csv
 
-THIS_DIR = os.path.dirname(__file__)
-DEFAULT_CSV_PATH = os.path.abspath(os.path.join(THIS_DIR, '..', 'csv', 'students.csv'))
-
-CSV_HEADERS = [
-    'full_name',
-    'section',
-    'spanish_grade',
-    'english_grade',
-    'social_grade',
-    'science_grade',
-    'average',
-]
-
 def ensure_csv_dir(path):
     directory = os.path.dirname(path)
-    if not os.path.exists(directory):
+    if os.path.exists(directory):
+        if not os.path.isdir(directory):
+            raise OSError(f'Path exists but is not a directory: {directory}')
+    else:
         os.makedirs(directory, exist_ok=True)
 
 
@@ -45,11 +35,11 @@ def student_average_from_values(span, eng, soc, sci):
     return (span + eng + soc + sci) / 4.0
 
 
-def export_csv(students, path=DEFAULT_CSV_PATH):
+def export_csv(students, *, path, headers):
     ensure_csv_dir(path)
     try:
         with open(path, 'w', newline='', encoding='utf-8') as file:
-            writer = csv.DictWriter(file, fieldnames=CSV_HEADERS)
+            writer = csv.DictWriter(file, fieldnames=headers)
             writer.writeheader()
             for student in students:
                 span = float(student['spanish_grade'])
@@ -71,7 +61,7 @@ def export_csv(students, path=DEFAULT_CSV_PATH):
         print(f"Export failed: {Error}")
 
 
-def import_csv(students, path=DEFAULT_CSV_PATH):
+def import_csv(students, *, path, headers):
     metrics = {'imported': 0, 'skipped': 0, 'errors': 0}
 
     if not os.path.exists(path):
@@ -82,9 +72,8 @@ def import_csv(students, path=DEFAULT_CSV_PATH):
         with open(path, 'r', newline='', encoding='utf-8') as file:
             reader = csv.DictReader(file)
 
-            expected_headers = CSV_HEADERS
             found_headers = reader.fieldnames or []
-            missing_headers = [header for header in expected_headers if header not in found_headers]
+            missing_headers = [header for header in headers if header not in found_headers]
             if missing_headers:
                 print(f'Invalid CSV format. Missing headers: {missing_headers}')
                 return metrics

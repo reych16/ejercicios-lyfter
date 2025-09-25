@@ -1,6 +1,7 @@
 from menu import show_menu, get_choice_from_menu
 import actions
 import data
+import os
 
 def pause():
     try:
@@ -10,6 +11,19 @@ def pause():
 
 
 def main():
+    THIS_DIR = os.path.dirname(__file__)
+    DEFAULT_CSV_PATH = os.path.abspath(os.path.join(THIS_DIR, '..', 'csv', 'students.csv'))
+
+    CSV_HEADERS = [
+        'full_name',
+        'section',
+        'spanish_grade',
+        'english_grade',
+        'social_grade',
+        'science_grade',
+        'average',
+    ]
+
     students = []
 
     print('Welcome to the Student Management System!')
@@ -31,10 +45,10 @@ def main():
                 actions.show_global_average(students)
                 pause()
             elif choice == 5:
-                data.export_csv(students)
+                data.export_csv(students, path=DEFAULT_CSV_PATH, headers=CSV_HEADERS)
                 pause()
             elif choice == 6:
-                data.import_csv(students)
+                data.import_csv(students, path=DEFAULT_CSV_PATH, headers=CSV_HEADERS)
                 pause()
             elif choice == 7:
                 print('Goodbye!')
