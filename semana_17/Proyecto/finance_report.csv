@@ -1,0 +1,9 @@
+Fecha,Título,Monto,Categoría,Tipo
+13/05/2026,Pizza,3000.0,Comida,gasto
+13/05/2026,Salario,700000.0,Salario,ingreso
+10/05/2026,Pastillas,4000.0,Medicamentos,gasto
+11/05/2026,Gasolina Super,20000.0,Gasolina,gasto
+
+Total ingresos,700000.0
+Total gastos,27000.0
+Balance neto,673000.0
