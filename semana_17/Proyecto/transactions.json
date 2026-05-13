@@ -1,0 +1,30 @@
+[
+    {
+        "title": "Salario",
+        "amount": 700000.0,
+        "category": "Salario",
+        "transaction_type": "ingreso",
+        "transaction_date": "13/05/2026"
+    },
+    {
+        "title": "Pastillas",
+        "amount": 4500.0,
+        "category": "Medicamentos",
+        "transaction_type": "gasto",
+        "transaction_date": "10/05/2026"
+    },
+    {
+        "title": "Gasolina Super",
+        "amount": 20000.0,
+        "category": "Gasolina",
+        "transaction_type": "gasto",
+        "transaction_date": "11/05/2026"
+    },
+    {
+        "title": "Mercado",
+        "amount": 45000.0,
+        "category": "Comida",
+        "transaction_type": "gasto",
+        "transaction_date": "10/04/2026"
+    }
+]
